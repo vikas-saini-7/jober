@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import EmployerCard from './EmployerCard';
 import Loader from './Loader';
+import { API_BASE_URL } from '@/constants';
 
 
 interface Employer {
@@ -23,7 +24,7 @@ const TopEmployers = () => {
     // Fetch job data when the component mounts
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/employers');
+        const response = await fetch(`${API_BASE_URL}/api/employers`);
         const data = await response.json();
         setEmployers(data);
         // console.log(data)

@@ -5,6 +5,7 @@ import PageHeader from '@/components/PageHeader'
 import Pagination from '@/components/Pagination';
 import React, { useEffect, useState, KeyboardEvent } from 'react'
 import { useRouter } from 'next/router';
+import { API_BASE_URL } from '@/constants';
 
 const pageNames = ['home', 'jobs'];
 
@@ -61,7 +62,7 @@ const jobs = () => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch('http://localhost:3000/api/jobs');
+        const response = await fetch(`${API_BASE_URL}/api/jobs`);
         const data = await response.json();
         setJobs(data);
         setIsLoading(false);
@@ -85,7 +86,7 @@ const jobs = () => {
       setShowSearchString(false);
     }
     try {
-      const response = await fetch(`http://localhost:3000/api/search?q=${searchString}`);
+      const response = await fetch(`${API_BASE_URL}/api/search?q=${searchString}`);
       const data = await response.json();
       setJobs(data.searchedJobs);
       // console.log(data);

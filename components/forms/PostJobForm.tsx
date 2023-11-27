@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from '../Loader';
+import { API_BASE_URL } from '@/constants';
 
 const PostJobForm: React.FC = () => {
   
@@ -32,7 +33,7 @@ const PostJobForm: React.FC = () => {
   
     // Posting data to the database
     try {
-      let result = await fetch('http://localhost:3000/api/post-job', {
+      let result = await fetch(`${API_BASE_URL}/api/post-job`, {
         method: 'post',
         body: JSON.stringify({
           jobTitle,

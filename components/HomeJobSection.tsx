@@ -3,6 +3,7 @@ import React, { useEffect, useState, KeyboardEvent } from 'react'
 import HomeSectionJobCard from './HomeJobSectionCard';
 import Link from 'next/link';
 import Loader from './Loader';
+import {API_BASE_URL} from '@/constants';
 
 
 interface Job {
@@ -16,33 +17,7 @@ interface Job {
     tags?: string[];
   }
 
-// const jobs = [
-//   {
-//     title: 'DevOps Engineer',
-//     company: 'DevOps Solutions Ltd.',
-//     location: 'Austin',
-//     details: 'Exciting opportunity for a DevOps engineer to streamline our development processes...',
-//   },
-//   {
-//     title: 'DEVOPS AUTOMATION',
-//     company: 'DevOps Solutions Ltd.',
-//     location: 'Austin',
-//     details: 'Exciting opportunity for a DevOps engineer to streamline our development processes...',
-//   },
-//   {
-//     title: 'Another Job Title',
-//     company: 'Another Company',
-//     location: 'Remote',
-//     details: 'Job details for another opportunity...',
-//   },
-//   {
-//     title: 'Another Job Title',
-//     company: 'Another Company',
-//     location: 'Remote',
-//     details: 'Job details for another opportunity...',
-//   },
-//   // Add more job data as needed
-// ];
+
 
 
 const HomeJobSection = () => {
@@ -56,7 +31,7 @@ const HomeJobSection = () => {
         const fetchData = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch('http://localhost:3000/api/jobs');
+            const response = await fetch(`${API_BASE_URL}/api/jobs`);
             const data = await response.json();
             setJobs(data);
             setIsLoading(false);
