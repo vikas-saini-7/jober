@@ -10,7 +10,7 @@ import { API_BASE_URL } from '@/constants';
 const pageNames = ['home', 'jobs'];
 
 // Example filters (customize based on your requirements)
-const locations = ['San Francisco', 'New York', 'Remote', 'Los Angeles'];
+const locations = ['Pune', 'Mumbai', 'Jaipur', 'Banglore'];
 const jobLevels = ['Entry Level', 'Mid Level', 'Senior Level'];
 const employmentTypes = ['Full Time', 'Part Time', 'Contract'];
 
