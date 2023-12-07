@@ -221,7 +221,7 @@ const jobs = () => {
                 />
               ))}
 
-              { jobs.length == 0 && isLoading && (
+              { jobs.length == 0 && !isLoading && (
                 <NothingFound/>
               )}
               
